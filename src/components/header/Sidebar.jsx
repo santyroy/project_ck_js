@@ -70,7 +70,11 @@ const Sidebar = ({ showMobileMenu, setShowMobileMenu }) => {
       {!user.isLoggedIn && (
         <>
           <li className="w-full">
-            <NavLink className="flex justify-center items-center" to="login">
+            <NavLink
+              className="flex justify-center items-center"
+              to="login"
+              onClick={() => setShowMobileMenu(false)}
+            >
               <div>
                 <ButtonSolid content="Log in" />
               </div>
@@ -78,7 +82,11 @@ const Sidebar = ({ showMobileMenu, setShowMobileMenu }) => {
           </li>
 
           <li className="w-full">
-            <NavLink className="flex justify-center items-center" to="signup">
+            <NavLink
+              className="flex justify-center items-center"
+              to="signup"
+              onClick={() => setShowMobileMenu(false)}
+            >
               <div>
                 <ButtonOutline content="Sign up" />
               </div>
