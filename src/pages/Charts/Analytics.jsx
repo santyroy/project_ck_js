@@ -1,8 +1,5 @@
 import PageLayout from "../../layouts/PageLayout";
 import LoggedInHeader from "../../components/shared/LoggedInHeader";
-import LineGraph from "./Line";
-import BarGraph from "./Bar";
-import PieGraph from "./Pie";
 import { useFetchTransactionByUser } from "../../hooks/useFetchTransactionByUser";
 import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
@@ -62,22 +59,19 @@ const Analytics = () => {
     <PageLayout>
       <LoggedInHeader />
       <div className="bg-white p-5 shadow rounded flex flex-col gap-16">
-        <LineTransactionByUser
-          incomes={incomesPerDay}
-          expenses={expensesPerDay}
-        />
+        <div className="min-h-80">
+          <LineTransactionByUser
+            incomes={incomesPerDay}
+            expenses={expensesPerDay}
+          />
+        </div>
 
-        <div className="min-h-96">
+        <div className="min-h-80">
           <BarTransactionByCategory
             incomes={incomesPerCategory}
             expenses={expensesPerCategory}
           />
         </div>
-
-        <div className="mb-40"></div>
-        <LineGraph />
-        <BarGraph />
-        <PieGraph />
       </div>
     </PageLayout>
   );

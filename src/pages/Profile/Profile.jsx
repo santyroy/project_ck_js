@@ -69,9 +69,9 @@ const Profile = () => {
             <ErrorMessage message={errors.password.message} />
           )}
 
-          <div className="flex flex-col h-32">
+          <div className="flex flex-col">
             <label htmlFor="avatar">Choose your Avatar</label>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <Avatar image={Avatar1} setAvatar={setAvatar} />
               <Avatar image={Avatar2} setAvatar={setAvatar} />
               <Avatar image={Avatar3} setAvatar={setAvatar} />

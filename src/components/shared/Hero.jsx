@@ -26,7 +26,7 @@ const Hero = ({
     );
   } else {
     return (
-      <div className="flex flex-col justify-center items-center my-5 md:flex-row bg-white px-8 rounded-md shadow">
+      <div className="flex flex-col justify-center items-center my-5 md:flex-row bg-white p-8 rounded-md shadow">
         <div className="text-center sm:text-left">
           <span className="text-xl sm:text-3xl font-semibold text-green-700">
             {title[0]}

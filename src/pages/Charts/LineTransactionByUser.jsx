@@ -27,6 +27,7 @@ ChartJS.register(
 
 const LineTransactionByUser = ({ incomes = [], expenses = [] }) => {
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
