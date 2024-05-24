@@ -42,7 +42,7 @@ const BudgetDetails = () => {
       key={index}
       className="text-gray-700 sm:m-1 py-1 flex gap-5 items-center"
     >
-      <span className="text-orange-600 animate-pulse">
+      <span className="text-orange-600">
         <FaBell />
       </span>
       <p className="flex flex-wrap text-xs sm:text-sm">

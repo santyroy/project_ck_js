@@ -30,7 +30,7 @@ const TransactionsByBudget = ({ budgetId }) => {
         </div>
       ) : data?.data?.data.content.length > 0 ? (
         <div>
-          <div className="flex mb-4">
+          <div className="flex flex-col mb-4 gap-2 sm:flex-row sm:gap-0">
             <p className="font-bold w-1/6 text-gray-700 text-xs sm:text-base sm:pl-3">
               Amount (&#8377;)
             </p>
