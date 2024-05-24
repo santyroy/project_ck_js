@@ -4,6 +4,15 @@ import { FaBell } from "react-icons/fa6";
 
 const PaymentDetails = ({ summary }) => {
   const expenseSummary = summary?.data?.data?.totalIncomeAndExpensePerUsers;
+  const allBudgetMembers = summary?.data?.data?.allBudgetMembers;
+
+  // Iterate through allBudgetMembers and update the expenseSummary with empty object for non transacted members
+  allBudgetMembers.forEach((email) => {
+    if (!Object.prototype.hasOwnProperty.call(expenseSummary, email)) {
+      expenseSummary[email] = { income: 0, expense: 0 };
+    }
+  });
+
   const payments = splitWise(expenseSummary);
 
   const paymentsDetails = payments.map((payment, index) => (

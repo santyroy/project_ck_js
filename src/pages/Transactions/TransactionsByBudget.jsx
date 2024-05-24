@@ -79,7 +79,7 @@ const TransactionsByBudget = ({ budgetId }) => {
 };
 
 TransactionsByBudget.propTypes = {
-  budgetId: PropTypes.number.isRequired,
+  budgetId: PropTypes.string.isRequired,
 };
 
 export default TransactionsByBudget;

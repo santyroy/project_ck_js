@@ -10,7 +10,6 @@ export const useUpdateProfile = (axiosPrivate, userId, resetField) => {
     mutationKey: ["updateProfile", userId],
     mutationFn: (data) => updateUser(axiosPrivate, userId, data),
     onSuccess: (data) => {
-      console.log(data);
       const { name, email, picture } = data.data.data;
       setUser((prev) => {
         return { ...prev, name, email, picture };
