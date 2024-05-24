@@ -40,6 +40,10 @@ export const logoutUser = () => {
 };
 
 // Budget endpoints
+export const getBudget = (axiosPrivate, budgetId) => {
+  return axiosPrivate.get(`/budgets/${budgetId}`);
+};
+
 export const addBudget = (axiosPrivate, data) => {
   return axiosPrivate.post("/budgets", data.newBudget);
 };

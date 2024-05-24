@@ -1,10 +1,10 @@
 import useAuthContext from "../../hooks/useAuthContext";
 import { useForm } from "react-hook-form";
 import FormInput from "../../components/shared/FormInput";
-import { ButtonSolid } from "../../components/shared/Button";
+import { ButtonOutline, ButtonSolid } from "../../components/shared/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ErrorMessage } from "../../components/shared/Message";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PageLayout from "../../layouts/PageLayout";
 import { transactionSchema } from "../../schemas/schema";
 import { useAddTransaction } from "../../hooks/useAddTransaction";
@@ -15,6 +15,8 @@ const AddTransaction = () => {
   const { user } = useAuthContext();
   const location = useLocation();
   const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const { name, budgetId } = location.state;
 
   const {
     register,
@@ -28,7 +30,7 @@ const AddTransaction = () => {
   const onSubmit = (data) => {
     let transaction = {
       ...data,
-      budgetId: location.state.budgetId,
+      budgetId: budgetId,
       userId: user.userId,
     };
     mutate(transaction);
@@ -59,7 +61,7 @@ const AddTransaction = () => {
               <div id="budgetId" className="shadow bg-yellow-100">
                 <p className="px-2 py-1 rounded-sm">
                   <span className="text-gray-700 font-semibold uppercase">
-                    {location.state.name}
+                    {name}
                   </span>
                 </p>
               </div>
@@ -149,6 +151,12 @@ const AddTransaction = () => {
             />
           </div>
         </form>
+        <div className="mt-5">
+          <ButtonOutline
+            content={"Back to Previous Budget"}
+            onClick={() => navigate(`/budgets/${budgetId}`, { replace: true })}
+          />
+        </div>
       </div>
     </PageLayout>
   );
