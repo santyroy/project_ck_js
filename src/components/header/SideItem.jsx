@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const SideItem = ({ content, path }) => {
+const SideItem = ({ content, path, setShowMobileMenu }) => {
   return (
     <li className="w-full">
       <NavLink
@@ -11,6 +11,7 @@ const SideItem = ({ content, path }) => {
             : "flex justify-center items-center hover:text-green-800"
         }
         to={path}
+        onClick={() => setShowMobileMenu(false)}
       >
         {content}
       </NavLink>
@@ -21,6 +22,7 @@ const SideItem = ({ content, path }) => {
 SideItem.propTypes = {
   content: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  setShowMobileMenu: PropTypes.func,
 };
 
 export default SideItem;

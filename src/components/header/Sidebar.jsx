@@ -23,6 +23,7 @@ const Sidebar = ({ showMobileMenu, setShowMobileMenu }) => {
   const handleLogout = () => {
     refetch();
     setUser({ isLoggedIn: false, userId: "", name: "", email: "", jwt: "" });
+    setShowMobileMenu(false);
     navigate("/login");
   };
 
@@ -40,10 +41,26 @@ const Sidebar = ({ showMobileMenu, setShowMobileMenu }) => {
 
       {user.isLoggedIn && (
         <>
-          <SideItem content="Dashboard" path="dashboard" />
-          <SideItem content="Budgets" path="budgets" />
-          <SideItem content="Analytics" path="analytics" />
-          <SideItem content="Profile" path="profile" />
+          <SideItem
+            content="Dashboard"
+            path="dashboard"
+            setShowMobileMenu={setShowMobileMenu}
+          />
+          <SideItem
+            content="Budgets"
+            path="budgets"
+            setShowMobileMenu={setShowMobileMenu}
+          />
+          <SideItem
+            content="Analytics"
+            path="analytics"
+            setShowMobileMenu={setShowMobileMenu}
+          />
+          <SideItem
+            content="Profile"
+            path="profile"
+            setShowMobileMenu={setShowMobileMenu}
+          />
           <li>
             <ButtonOutline content="Log out" onClick={handleLogout} />
           </li>

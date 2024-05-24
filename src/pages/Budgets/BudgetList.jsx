@@ -26,29 +26,33 @@ const BudgetList = () => {
 
   return (
     <section className="mt-10">
-      <div className="bg-green-800 p-2 sm:px-5 sm:py-3 rounded-t flex items-center">
-        <h2 className="text-sm sm:text-xl text-gray-100 font-semibold grow">
-          List of Budgets
-        </h2>
+      <div className="bg-green-800 p-3 sm:px-5 sm:py-3 rounded-t flex flex-col gap-2 text-gray-100">
+        <div className="flex">
+          <h2 className="text-base sm:text-xl font-semibold grow">
+            List of Budgets
+          </h2>
 
-        <div className="pagination-button-group text-white flex gap-5 sm:gap-14">
-          <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              id="members"
-              className="cursor-pointer accent-yellow-400 h-4 w-4 rounded"
-              onChange={() => setIncludeMembers((prev) => !prev)}
+          <div className="pagination-button-group flex gap-5 sm:gap-14">
+            <PaginationButtons
+              page={page}
+              setPage={setPage}
+              isLastPage={data?.data?.data?.last}
             />
-            <label htmlFor="members" className="text-sm sm:text-base">
-              Group Budgets
-            </label>
           </div>
+        </div>
 
-          <PaginationButtons
-            page={page}
-            setPage={setPage}
-            isLastPage={data?.data?.data?.last}
+        <hr />
+
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="members"
+            className="cursor-pointer accent-yellow-400 h-4 w-4 rounded"
+            onChange={() => setIncludeMembers((prev) => !prev)}
           />
+          <label htmlFor="members" className="text-sm sm:text-base">
+            Group Budgets
+          </label>
         </div>
       </div>
 
