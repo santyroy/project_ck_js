@@ -11,6 +11,9 @@ export const useAddTransaction = (axiosPrivate, resetField) => {
       resetField("amount");
       resetField("category");
       resetField("type");
+      resetField("name");
+      resetField("quantity");
+      resetField("unit");
     },
     onError: (error) => toast.success(error),
   });

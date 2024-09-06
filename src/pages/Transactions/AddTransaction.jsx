@@ -9,7 +9,7 @@ import PageLayout from "../../layouts/PageLayout";
 import { transactionSchema } from "../../schemas/schema";
 import { useAddTransaction } from "../../hooks/useAddTransaction";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import { categories } from "../../utils/Constants";
+import { categories, units } from "../../utils/Constants";
 
 const AddTransaction = () => {
   const { user } = useAuthContext();
@@ -141,6 +141,51 @@ const AddTransaction = () => {
             </select>
             {errors.category && (
               <ErrorMessage message={errors.category?.message} />
+            )}
+          </div>
+
+          <div>
+            <FormInput
+              id="name"
+              label="Name"
+              type="text"
+              register={register}
+            />
+            {errors.amount && <ErrorMessage message={errors.name?.message} />}
+          </div>
+
+          <div>
+            <FormInput
+              id="quantity"
+              label="Quantity"
+              type="number"
+              register={register}
+            />
+            {errors.amount && <ErrorMessage message={errors.quantity?.message} />}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="unit"
+              
+            >
+              Unit
+            </label>
+            <select
+              name="unit"
+              id="unit"
+              className="border border-gray-300 rounded py-1 px-2 bg-white text-gray-700 leading-tight focus:outline-none focus:border-2 focus:border-green-700"
+              {...register("unit")}
+            >
+              <option value=""></option>
+              {units.map((unit, index) => (
+                <option key={index} value={unit.toUpperCase()}>
+                  {unit}
+                </option>
+              ))}
+            </select>
+            {errors.unit && (
+              <ErrorMessage message={errors.unit?.message} />
             )}
           </div>
 

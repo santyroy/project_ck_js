@@ -17,6 +17,9 @@ const TransactionRow = ({ transaction, by }) => {
     type,
     amount,
     category,
+    name,
+    quantity,
+    unit,
     date,
     budget,
     user: transactionUser,
@@ -28,7 +31,7 @@ const TransactionRow = ({ transaction, by }) => {
 
   const { mutate } = useDeleteTransaction(axiosPrivate);
 
-  const width = by === "user" ? "sm:w-1/5" : "sm:w-1/6";
+  const width = by === "user" ? "sm:w-1/6" : "sm:w-1/6";
 
   return (
     <>
@@ -39,6 +42,7 @@ const TransactionRow = ({ transaction, by }) => {
       >
         <p className={`${width} font-bold text-xs sm:text-sm pl-3`}>{amount}</p>
         <p className={`${width} text-xs sm:text-sm pl-3 sm:pl-0`}>{category}</p>
+        <p className={`${width} text-xs sm:text-sm pl-3 sm:pl-0`}>{`${name} (${quantity ? quantity : ""}${unit ? unit.toLowerCase() : ""})`}</p>
         <p className={`${width} text-xs sm:text-sm pl-3 sm:pl-0`}>
           {formattedDate}
         </p>

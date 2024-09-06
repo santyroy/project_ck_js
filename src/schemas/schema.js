@@ -94,6 +94,14 @@ export const transactionSchema = yup
       .positive(),
     category: yup.string().required("Category is mandatory"),
     type: yup.string().required("Type of transaction is mandatory"),
+    name: yup.string(),
+    quantity: yup
+      .number()
+      .typeError("Quantity must be a number")
+      .nullable()
+      .moreThan(0, "Quantity cannot be negative")
+      .transform((_, val) => (val !== "" ? Number(val) : null)),
+    unit: yup.string(),
   })
   .required();
 

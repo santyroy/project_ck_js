@@ -38,6 +38,9 @@ const TransactionsByBudget = ({ budgetId }) => {
               Category
             </p>
             <p className="font-bold w-1/6 text-gray-700 text-xs sm:text-base">
+              Name
+            </p>
+            <p className="font-bold w-1/6 text-gray-700 text-xs sm:text-base">
               Date
             </p>
             <p className="font-bold w-1/6 text-gray-700 text-xs sm:text-base">

@@ -16,7 +16,7 @@ const Analytics = () => {
     axiosPrivate,
     user.userId,
     page,
-    10
+    100
   );
 
   let incomesPerDay = data?.data?.data.content

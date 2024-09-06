@@ -21,3 +21,10 @@ export const categories = [
   "Gifts/Inheritances",
   "Other Income",
 ];
+
+export const units = [
+  "g",
+  "kg",
+  "litre",
+  "pack"
+]
