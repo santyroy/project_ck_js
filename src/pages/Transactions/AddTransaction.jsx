@@ -118,6 +118,16 @@ const AddTransaction = () => {
             />
             {errors.amount && <ErrorMessage message={errors.amount?.message} />}
           </div>
+          <div>
+            <FormInput
+              id="date"
+              label="Date"
+              type="date"
+              register={register}
+            />
+            <p className="text-sm text-gray-500"><i>Enter date only for old transactions, otherwise leave it blank.</i></p>
+            {errors.date && <ErrorMessage message={errors.date?.message} />}
+          </div>
 
           <div className="flex flex-col gap-2">
             <label

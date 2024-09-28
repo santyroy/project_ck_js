@@ -102,6 +102,7 @@ export const transactionSchema = yup
       .moreThan(0, "Quantity cannot be negative")
       .transform((_, val) => (val !== "" ? Number(val) : null)),
     unit: yup.string(),
+    date: yup.date().nullable().transform((_, val) => (val !== "" ? new Date(val) : null)),
   })
   .required();
 

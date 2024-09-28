@@ -57,7 +57,7 @@ const TransactionsByBudget = ({ budgetId }) => {
           <div className="h-80 overflow-y-auto scroll-smooth">
             {data?.data?.data.content.map((transaction) => (
               <TransactionRow
-                key={transaction.date}
+                key={transaction.id}
                 transaction={transaction}
               />
             ))}
